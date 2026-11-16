@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Check before you invest — okay-invest</title>
+  <meta name="description" content="See what an investment plan would really have done over up to 26 years: worst years, costs, taxes, warnings. Not advice.">
+  <style>
+    body { margin: 0; }
+    header.top { display: flex; align-items: baseline; gap: 12px; padding: 10px 16px; border-bottom: 1px solid #e3e7ee; }
+    header.top .name { font-weight: 600; }
+    header.top .langs { margin-left: auto; }
+    header.top { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+    header.top .langs a { margin-left: 10px; color: #fff; text-decoration: none; opacity: .75; }
+    header.top .langs a:hover, header.top .langs a.on { opacity: 1; text-decoration: underline; }
+    /* the pictures' marks: the plan, the S&P 500, the years up and down, the axes */
+    svg .okay-picture-shape.okay-mark-plan { fill: #1f5fa8; stroke: #1f5fa8; }
+    svg .okay-picture-shape.okay-mark-index { fill: #b0b8c4; stroke: #b0b8c4; }
+    svg .okay-picture-shape.okay-mark-up { fill: #2e8b57; }
+    svg .okay-picture-shape.okay-mark-down { fill: #c0392b; }
+    svg .okay-picture-shape.okay-mark-axis { fill: #d5dae2; stroke: #d5dae2; }
+    /* the foot: who built it on the left, "Need more?" (the author) on the right */
+    body > footer { border-top: 1px solid #e3e7ee; padding: 10px 16px; font-size: 14px; }
+    body > footer .bar { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
+    body > footer .more { margin-left: auto; }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <span class="name">okay-invest</span>
+    <span class="langs"><a href="?lang=en">EN</a><a href="?lang=pl">PL</a></span>
+  </header>
+  <script>for (const a of document.querySelectorAll(".langs a"))
+    if ((new URLSearchParams(location.search).get("lang") || (navigator.language.startsWith("pl") ? "pl" : "en"))
+      === a.textContent.toLowerCase()) a.classList.add("on")</script>
+  <main id="app"></main>
+  <footer><div class="bar">
+    <span>Built on <a href="https://github.com/okay-effects" target="_blank" rel="noopener noreferrer">okay-effects</a> — algebraic effects for Scala</span>
+    <a class="more" href="https://okay-effects.github.io/#author" target="_blank" rel="noopener noreferrer">Need more?</a>
+  </div></footer>
+  <script src="main.js"></script>
+</body>
+</html>

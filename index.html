@@ -23,6 +23,10 @@
     body > footer { border-top: 1px solid #e3e7ee; padding: 10px 16px; font-size: 14px; }
     body > footer .bar { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
     body > footer .more { margin-left: auto; }
+    /* a phone: a table wider than the screen scrolls by itself, the page does not (the result's and the tax helper's
+       tables were 508 and 603 px on a 390 px iPhone, 2026-11-17); text in a cell still wraps */
+    @media screen and (max-width: 700px) {
+      table.okay-table { display: block; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; } }
     /* the print (the tax helper's report kept with a return): the page's content only */
     @media print { header.top, body > footer, button, .okay-buttons, nav { display: none !important; }
       body { font-size: 11pt; } table { page-break-inside: auto; } tr { page-break-inside: avoid; } }

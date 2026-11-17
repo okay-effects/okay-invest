@@ -44,17 +44,21 @@
   <footer><div class="bar">
     <span><span class="built">Built on</span> <a href="https://github.com/okay-effects" target="_blank"
       rel="noopener noreferrer">okay-effects</a> — <span class="what">algebraic effects for Scala</span></span>
+    <a class="privacy" href="privacy.html">Privacy and terms</a>
     <a class="more" href="https://okay-effects.github.io/#author" target="_blank" rel="noopener noreferrer">Need
       more?</a>
   </div></footer>
   <script>{ const words = {
-      pl: ["Zbudowane na", "efekty algebraiczne dla Scali", "Potrzebujesz więcej?"],
-      ru: ["Сделано на", "алгебраические эффекты для Scala", "Нужно больше?"],
-      uk: ["Зроблено на", "алгебраїчні ефекти для Scala", "Потрібно більше?"] }[document.documentElement.lang]
+      pl: ["Zbudowane na", "efekty algebraiczne dla Scali", "Potrzebujesz więcej?", "Prywatność i warunki"],
+      ru: ["Сделано на", "алгебраические эффекты для Scala", "Нужно больше?", "Конфиденциальность и условия"],
+      uk: ["Зроблено на", "алгебраїчні ефекти для Scala", "Потрібно більше?", "Конфіденційність і умови"]
+    }[document.documentElement.lang]
     if (words) {
       document.querySelector("footer .built").textContent = words[0]
       document.querySelector("footer .what").textContent = words[1]
-      document.querySelector("footer .more").textContent = words[2] } }</script>
+      document.querySelector("footer .more").textContent = words[2]
+      const privacy = document.querySelector("footer .privacy")
+      privacy.textContent = words[3]; privacy.href = "privacy.html#" + document.documentElement.lang } }</script>
   <script type="module" src="main-QB6NKGYP.js"></script>
 </body>
 </html>

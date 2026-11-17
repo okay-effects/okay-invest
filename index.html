@@ -28,16 +28,30 @@
 <body>
   <header class="top">
     <span class="name">okay-invest</span>
-    <span class="langs"><a href="?lang=en">EN</a><a href="?lang=pl">PL</a></span>
+    <span class="langs"><a href="?lang=en">EN</a><a href="?lang=pl">PL</a><a href="?lang=ru">RU</a><a
+      href="?lang=uk">UK</a></span>
   </header>
-  <script>for (const a of document.querySelectorAll(".langs a"))
-    if ((new URLSearchParams(location.search).get("lang") || (navigator.language.startsWith("pl") ? "pl" : "en"))
-      === a.textContent.toLowerCase()) a.classList.add("on")</script>
+  <script>{ const known = ["en", "pl", "ru", "uk"]
+    const asked = new URLSearchParams(location.search).get("lang") || navigator.language.slice(0, 2)
+    const lang = known.includes(asked) ? asked : "en"
+    document.documentElement.lang = lang
+    for (const a of document.querySelectorAll(".langs a"))
+      if (a.textContent.toLowerCase() === lang) a.classList.add("on") }</script>
   <main id="app"></main>
   <footer><div class="bar">
-    <span>Built on <a href="https://github.com/okay-effects" target="_blank" rel="noopener noreferrer">okay-effects</a> — algebraic effects for Scala</span>
-    <a class="more" href="https://okay-effects.github.io/#author" target="_blank" rel="noopener noreferrer">Need more?</a>
+    <span><span class="built">Built on</span> <a href="https://github.com/okay-effects" target="_blank"
+      rel="noopener noreferrer">okay-effects</a> — <span class="what">algebraic effects for Scala</span></span>
+    <a class="more" href="https://okay-effects.github.io/#author" target="_blank" rel="noopener noreferrer">Need
+      more?</a>
   </div></footer>
+  <script>{ const words = {
+      pl: ["Zbudowane na", "efekty algebraiczne dla Scali", "Potrzebujesz więcej?"],
+      ru: ["Сделано на", "алгебраические эффекты для Scala", "Нужно больше?"],
+      uk: ["Зроблено на", "алгебраїчні ефекти для Scala", "Потрібно більше?"] }[document.documentElement.lang]
+    if (words) {
+      document.querySelector("footer .built").textContent = words[0]
+      document.querySelector("footer .what").textContent = words[1]
+      document.querySelector("footer .more").textContent = words[2] } }</script>
   <script src="main.js"></script>
 </body>
 </html>
